@@ -22,7 +22,7 @@ function loadCurrent(){
     $.ajax({
     type: 'GET',
     url: 'http://api.openweathermap.org/data/2.5/weather?zip=' + $('#zipcode').val() +
-            '&appid=b7ee0197c4cee473050440d520c120c0' + '&units=' + $('#unitSelect').find(":selected").text().toLowerCase(),
+            '&appid=####' + '&units=' + $('#unitSelect').find(":selected").text().toLowerCase(),
     headers:{
         'Accept' : 'application/json'
     },
