@@ -25,11 +25,14 @@ function loadCurrent() {
 }
 
 function loadFiveDays() {
+  var fiveDayRows = $("#currentTableItem");
   $.ajax({
     type: "GET",
     url:
       "http://api.openweathermap.org/data/2.5/forecast?zip=" +
-      $("#zipcode").val() + 'units=' + $().val() +  
+      $("#zipcode").val() +
+      "units=" +
+      $("#unitSelect").val() +
       "&appid=####",
 
     headers: {
@@ -43,8 +46,22 @@ function loadFiveDays() {
           forecast.list.weather.icon +
           ".png";
         var mainCondition = forecast.list.weather.main;
-        var highTemp = ;
-        var lowTemp = ;
+        var highTemp = forecast.list.temp_max;
+        var lowTemp = forecast.list.temp_min;
+
+        var dateRow = "<tr> <td>" + weatherDate + "</tr>";
+        var conditionsRow =
+          "<tr><td><img src=" +
+          imgUrl +
+          'alt="weather image">' +
+          mainCondition +
+          "</td></tr>";
+        var tempsRow =
+          "<tr><td>H " + highTemp + " C L" + lowTemp + " C</td></tr>";
+
+        fiveDayRows.append(dateRow);
+        fiveDayRows.append(conditionsRow);
+        fiveDayRows.append(tempsRow);
       });
     },
     error: function () {},
