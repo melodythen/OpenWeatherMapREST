@@ -21,14 +21,64 @@
 
         <ul class="list-group" id="errorMessages"></ul>
 
+        <div class="row align-items-center">
+            <div class ="form-group row">
+                <label for = "zipcode" class =" control-label">
+                    Zipcode:
+                </label>
+
+                <div class ="col-sm-6">
+                    <input type = "text"
+                           pattern="[0-9]{5}"
+                           class = "form-control"
+                           id="zipcode"
+                           placeholder = "Enter Zipcode"
+                           required>  
+                </div>
+            
+       
+                <label for = "units" class ="control-label">
+                    Units:
+                </label>
+                <div class ="col-sm-3">
+                    
+                    <select>
+                        <option value="imperial">Imperial</option>
+                        <option value="metric">Metric</option>
+                    </select>
+                   
+                </div>
+            
+            
+                <div class="col-sm-3">
+                    <button type="button"
+                            id="getWeatherButton" >
+                        Get Weather
+                    </button>
+                  
+                </div>
+            </div>
+        </div>
+        <hr>
         
-        
-        
-        
-        
-        
+        <div id="currentConditionInCity" style="">
+            <h1>Current Conditions in /append city name/ </h1>
+            
+            <table id="currentTable" class="table table-hover">
+            <tbody id="currentTableItem">/*remove later and hide* insert image and weather report via js </tbody>
+            </table>
+        </div>
+        <hr>
+        <div id="fiveDayForecase" style="">
+          <h1>Five Day Forecast </h1>
+
+          <table id="fiveDayTable" class="table table-hover">
+          <tbody id="fiveDayItem">/*remove later and hide* insert image and weather report via js </tbody>
+          </table>
       </div>
-      
+        
+        
+    
       
       
       
