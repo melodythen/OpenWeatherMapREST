@@ -40,8 +40,8 @@ function loadCurrent(){
         var fOrC = ( $('#units').find(":selected").text().toLowerCase() == "imperial") ? "F": "C";
         var temp = weatherArray.main.temp +" " +fOrC;
         var humidity =weatherArray.main.humidity ;
-        var wind = weatherArray ;
-        currentDesc.append(desc);
+        var wind = weatherArray.wind ;
+       
     },
     error: function(){
         
