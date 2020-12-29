@@ -15,6 +15,14 @@ function getWeather(){
 
 function loadCurrent(){
     clearCurrentTable();
+    $('#errorMessages').empty();
+    if($('#zipcode').val().length !== 5) {
+        $('#errorMessages').append($('<div class="alert alert-danger >" role="alert"> Zipcode: Please enter a 5-digit zipcode </div>'));
+        $('#currentConditionInCity').hide();
+        return false;
+    }
+    
+    
     var currentRows = $('#currentTableItem');
     var currentDesc = $('#currentTableItemDesc');
     var cityName = $('#cityCondition');
@@ -42,7 +50,7 @@ function loadCurrent(){
         var fOrC = ( $('#unitSelect').find(":selected").text() == "Imperial") ? "F": "C";
         var temp = weatherArray.main.temp +" " +fOrC;
         var humidity =weatherArray.main.humidity ;
-        var windSpeedUnit = ( $('#unitSelect').find(":selected").text() == "Imperial")? "miles/hour" :"km/hour" ;
+        var windSpeedUnit = ( $('#unitSelect').find(":selected").text() == "Imperial")? "miles/hour" :"meters/second" ;
         var wind = weatherArray.wind.speed + " "+windSpeedUnit ;
        
        var rowdesc = '<tr> <td> Temperature: '+ temp +'</td> </tr>';
