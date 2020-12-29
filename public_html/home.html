@@ -21,13 +21,13 @@
 
         <ul class="list-group" id="errorMessages"></ul>
 
-        <div class="row align-items-center">
+        <div class="row justify-content-center">
             <div class ="form-group row">
                 <label for = "zipcode" class =" control-label">
                     Zipcode:
                 </label>
 
-                <div class ="col-sm-6">
+                <div class ="col-sm">
                     <input type = "text"
                            pattern="[0-9]{5}"
                            class = "form-control"
@@ -37,12 +37,14 @@
                 </div>
             
        
-                <label for = "units" class ="control-label">
+                <label for="units" class="control-label">
                     Units:
                 </label>
-                <div class ="col-sm-3">
+                <div class="col-sm-3">
                     
-                    <select>
+
+                    <select class="form-control" id="unitSelect">
+
                         <option value="imperial">Imperial</option>
                         <option value="metric">Metric</option>
                     </select>
@@ -51,7 +53,7 @@
             
             
                 <div class="col-sm-3">
-                    <button type="button"
+                    <button type="button" class="btn btn-light"
                             id="getWeatherButton" >
                         Get Weather
                     </button>
@@ -61,12 +63,17 @@
         </div>
         <hr>
         
-        <div id="currentConditionInCity" style="">
-            <h1>Current Conditions in /append city name/ </h1>
-            
-            <table id="currentTable" class="table table-hover">
-            <tbody id="currentTableItem">/*remove later and hide* insert image and weather report via js </tbody>
-            </table>
+        <div class="row" id="currentConditionInCity" style="display: none;">
+            <h1 id="cityCondition">Current Conditions in  </h1>
+           
+            <div class="col-md-6 " id ="currentTableItem">
+                
+            </div>
+            <div class="col-md-6" id ="currentTableItemDesc">
+                
+            </div>
+        
+
         </div>
         <hr>
         <div id="fiveDayForecase" style="">
@@ -78,13 +85,6 @@
       </div>
         
         
-    
-      
-      
-      
-      
-      
-      
       
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
