@@ -42,7 +42,9 @@
                 </label>
                 <div class="col-sm-3">
                     
+
                     <select class="form-control" id="unitSelect">
+
                         <option value="imperial">Imperial</option>
                         <option value="metric">Metric</option>
                     </select>
@@ -61,13 +63,17 @@
         </div>
         <hr>
         
-        <div id="currentConditionInCity" style="">
-            <h1>Current Conditions in /append city name/ </h1>
-            
-            <table id="currentTable" class="table table-hover">
+        <div class="row" id="currentConditionInCity" style="display: none;">
+            <h1 id="cityCondition">Current Conditions in  </h1>
+           
+            <div class="col-md-6 " id ="currentTableItem">
+                
+            </div>
+            <div class="col-md-6" id ="currentTableItemDesc">
+                
+            </div>
+        
 
-            <tbody id="currentTableItem">/*remove later and hide* insert image and weather report via js </tbody>
-            </table>
         </div>
         <hr>
         <div id="fiveDayForecase" style="">
@@ -79,13 +85,6 @@
       </div>
         
         
-    
-      
-      
-      
-      
-      
-      
       
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
