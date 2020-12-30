@@ -10,7 +10,7 @@ function getWeather() {
 }
 
 function loadFiveDays() {
-  var fiveDayRows = $("#fiveDayItem");
+  clearFiveDayTable();
   $.ajax({
     type: "GET",
     url:
@@ -24,6 +24,7 @@ function loadFiveDays() {
       Accept: "application/json",
     },
     success: function (forecastArray) {
+      $("#fiveDayForecast").show();
       const fiveDayArray = [];
 
       forecastArray.list.forEach(function (item) {
@@ -58,7 +59,6 @@ function loadFiveDays() {
           "http://openweathermap.org/img/w/" +
           forecast.weather[0].icon +
           ".png";
-        console.log(imgUrl);
         var mainCondition = forecast.weather[0].main;
         var highTemp = forecast.main.temp_max;
         var lowTemp = forecast.main.temp_min;
@@ -66,27 +66,23 @@ function loadFiveDays() {
           $("#unitSelect").find(":selected").text() == "Imperial" ? "F" : "C";
 
         var dateRow =
-          "<tr> <td>" +
+          "<div class=col-md id=" +
+          (index + 1) +
+          ">" +
           weatherDate.getDate() +
           " " +
           month[weatherDate.getMonth()] +
-          "</tr>";
-        var conditionsRow =
-          "<tr><td><img src=" + imgUrl + ">" + mainCondition + "</td></tr>";
-        var tempsRow =
-          "<tr><td>H " +
-          highTemp +
-          " " +
-          fOrC +
-          " L" +
-          lowTemp +
-          " " +
-          fOrC +
-          "</td></tr>";
+          "</div>";
 
-        fiveDayRows.append(dateRow);
-        fiveDayRows.append(conditionsRow);
-        fiveDayRows.append(tempsRow);
+        var conditionsRow = "<br/><img src=" + imgUrl + ">" + mainCondition;
+        var tempsRow =
+          "<br/>H " + highTemp + " " + fOrC + " L" + lowTemp + " " + fOrC;
+
+        var currentIndex = "#" + (index + 1);
+        $("#fiveDayItems").append(dateRow);
+        $(currentIndex).append(conditionsRow);
+        $(currentIndex).append(tempsRow);
+        $("#fiveDayItems").css("text-align", "center");
       });
     },
     error: function () {
@@ -167,4 +163,8 @@ function clearCurrentTable() {
   $("#cityCondition").text("Current Conditions in ");
   $("#currentTableItem").empty();
   $("#currentTableItemDesc").empty();
+}
+
+function clearFiveDayTable() {
+  $("#fiveDayItems").empty();
 }
