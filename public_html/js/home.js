@@ -96,6 +96,16 @@ function loadFiveDays() {
 }
 function loadCurrent() {
   clearCurrentTable();
+  $("#errorMessages").empty();
+  if ($("#zipcode").val().length !== 5) {
+    $("#errorMessages").append(
+      $(
+        '<div class="alert alert-danger >" role="alert"> Zipcode: Please enter a 5-digit zipcode </div>'
+      )
+    );
+    $("#currentConditionInCity").hide();
+    return false;
+  }
   var currentRows = $("#currentTableItem");
   var currentDesc = $("#currentTableItemDesc");
   var cityName = $("#cityCondition");
