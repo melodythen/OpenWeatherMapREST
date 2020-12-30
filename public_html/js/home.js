@@ -18,7 +18,7 @@ function loadFiveDays() {
       $("#zipcode").val() +
       "&units=" +
       $("#unitSelect").find(":selected").text().toLowerCase() +
-      "&appid=4868dfff7b4fc320326ab9b41baec745",
+      "&appid=###",
 
     headers: {
       Accept: "application/json",
@@ -105,7 +105,7 @@ function loadCurrent() {
     url:
       "http://api.openweathermap.org/data/2.5/weather?zip=" +
       $("#zipcode").val() +
-      "&appid=4868dfff7b4fc320326ab9b41baec745" +
+      "&appid=###" +
       "&units=" +
       $("#unitSelect").find(":selected").text().toLowerCase(),
     headers: {
